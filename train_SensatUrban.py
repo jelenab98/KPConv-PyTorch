@@ -268,8 +268,8 @@ if __name__ == '__main__':
         config.saving_path = sys.argv[1]
 
     # Initialize datasets
-    training_dataset = SensatUrbanDataset(config, set='training', use_potentials=True)
-    test_dataset = SensatUrbanDataset(config, set='validation', use_potentials=True)
+    training_dataset = SensatUrbanDataset(config, set='training', use_potentials=True, colab=True)
+    test_dataset = SensatUrbanDataset(config, set='validation', use_potentials=True, colab=True)
 
     # Initialize samplers
     training_sampler = SensatUrbanSampler(training_dataset)
