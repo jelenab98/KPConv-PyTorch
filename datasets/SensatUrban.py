@@ -138,7 +138,7 @@ class SensatUrbanDataset(PointCloudDataset):
         if colab:
             self.path = "/content/drive/MyDrive/SensatUrbanDataset/ply"
             self.path_processing = "/content/drive/MyDrive/SensatUrbanProcessed/"
-            self.additional_suffix = "training" if set == "validation" else set
+            self.additional_suffix = "training/" if set == "validation" else set+"/"
         else:
             self.path = '/home/jelena/datasets/sensat_urban/'
             self.path_processing = '/home/jelena/datasets/sensat_urban/'
