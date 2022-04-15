@@ -103,7 +103,8 @@ class SensatUrbanDataset(PointCloudDataset):
         ]
     }
 
-    def __init__(self, config, set='training', use_potentials=True, load_data=True, colab=False):
+    def __init__(self, config, set='training', use_potentials=True, load_data=True, colab=False,
+                 train_val_test_split=None):
         """
         This dataset is small enough to be stored in-memory, so load all point clouds
         """
@@ -112,6 +113,8 @@ class SensatUrbanDataset(PointCloudDataset):
         ############
         # Parameters
         ############
+        if train_val_test_split is not None:
+            self.train_val_test_split_files = train_val_test_split
 
         # Dict from labels to names
         self.label_to_names = {0: 'Ground',

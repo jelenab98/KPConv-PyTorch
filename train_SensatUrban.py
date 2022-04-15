@@ -267,9 +267,24 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         config.saving_path = sys.argv[1]
 
+    # Define train-val-test split
+    train_val_test_split_files = {
+        "training": [
+            "birmingham_block_0",
+        ],
+        "validation": [
+            "birmingham_block_1",
+        ],
+        "test": [
+            "cambridge_block_2",
+        ]
+    }
+
     # Initialize datasets
-    training_dataset = SensatUrbanDataset(config, set='training', use_potentials=True, colab=True)
-    test_dataset = SensatUrbanDataset(config, set='validation', use_potentials=True, colab=True)
+    training_dataset = SensatUrbanDataset(config, set='training', use_potentials=True, colab=True,
+                                          train_val_test_split=train_val_test_split_files)
+    test_dataset = SensatUrbanDataset(config, set='validation', use_potentials=True, colab=True,
+                                      train_val_test_split=train_val_test_split_files)
 
     # Initialize samplers
     training_sampler = SensatUrbanSampler(training_dataset)
